@@ -48,6 +48,7 @@ Btn 7: right trigger (R2)
 
 while True:
   #stearing
+  print("Stearing Axis", + ds4.get_axis(0))
   stearingAngle = ((ds4.get_axis(0) - -1)/(1 - -1)) * (180 - 0) + 0
   print("Stearing angle: ", + stearingAngle)
   pwm.servo[1].angle = stearingAngle
