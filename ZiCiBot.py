@@ -49,7 +49,7 @@ Btn 7: right trigger (R2)
 while True:
   #stearing
   stearingAngle = ((ds4.get_axis(0) - -1)/(1 - -1)) * (180 - 0) + 0
-  print("Stearing angle: "stearingAngle)
+  print("Stearing angle: ", + stearingAngle)
   pwm.servo[1].angle = stearingAngle
   #throttle
   if ds4.get_button(6): #left trigger
