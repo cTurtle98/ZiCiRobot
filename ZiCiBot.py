@@ -13,13 +13,15 @@ https://www.pygame.org/docs/ref/joystick.html
 https://github.com/adafruit/Adafruit_CircuitPython_ServoKit
 '''
 #library for reading from joystick
-from pygame import joystick
+import pygame
 #library for talking to servo board
 from adafruit_servokit import ServoKit
 
+
 # initialize the joystick
-joystick.init()
-ds4 = joystick.Joystick(0)
+pygame.init()
+pygame.joystick.init()
+ds4 = pygame.joystick.Joystick(0)
 ds4.init()
 
 
