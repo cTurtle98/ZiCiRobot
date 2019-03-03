@@ -13,7 +13,7 @@ https://www.pygame.org/docs/ref/joystick.html
 https://github.com/adafruit/Adafruit_CircuitPython_ServoKit
 '''
 #library for reading from joystick
-import pygame
+from pygame import joystick
 #library for talking to servo board
 from adafruit_servokit import ServoKit
 
