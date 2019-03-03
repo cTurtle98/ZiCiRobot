@@ -10,3 +10,5 @@ sudo apt install python3-pip
 sudo apt-get install python3-pygame
 
 sudo pip3 install adafruit-circuitpython-servokit
+
+sudo pip3 install ds4drv
