@@ -18,7 +18,7 @@ from pygame import joystick
 from adafruit_servokit import ServoKit
 
 # initialize the joystick
-ds4 = pygame.joystick.Joystick(0)
+ds4 = joystick.Joystick(0)
 ds4.init()
 
 
