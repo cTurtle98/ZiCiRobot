@@ -18,8 +18,9 @@ import pygame
 from adafruit_servokit import ServoKit
 
 # initialize the joystick
-pygame.joystick.init()
 ds4 = pygame.joystick.Joystick(0)
+ds4.init()
+
 
 # initialize the pwm board
 pwm = ServoKit(channels=16)
