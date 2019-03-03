@@ -16,7 +16,7 @@ for i in range(joystick_count):
   joystick.init()
   
   name = joystick.get_name()
-  print("Joystick name: " name)
+  print("Joystick name: ", name)
   
   axes = joystick.get_numaxes()
   
