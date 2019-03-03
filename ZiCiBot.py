@@ -48,12 +48,12 @@ Btn 7: right trigger (R2)
 
 while True:
   #stearing
-  kit.servo[1].angle = map(ds4.get_axis(0), 1, -1, 0, 180)
+  kit.servo[1].angle = ((ds4.get_axis(0) - -1)/(1 - -1)) * (180 - 0) + 0
   #throttle
   if ds4.get_button(6): #left trigger
-    kit.servo[2].angle = map(ds4.get_axis(2), 1, -1, 0, 90) #map to reverse
+    kit.servo[2].angle = ((ds4.get_axis(2) - -1)/(1 - -1)) * (90 - 0) + 0
   elif ds4.get_button(7): #right trigger
-    kit.servo[2].angle = map(ds4.get_axis(5), 1, -1, 90, 180) #map to forward
+    kit.servo[2].angle = ((ds4.get_axis(5) - -1)/(1 - -1)) * (180 - 90) + 90
   else:
     kit.servo[2].angle = 90
   
