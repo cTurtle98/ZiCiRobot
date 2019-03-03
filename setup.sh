@@ -5,6 +5,6 @@
 # setup script for preparing a raspberry pi for being the robot brain
 #
 
-sudo apt install python3-pip
+sudo apt install python3-pip libsdl1.2debian
 
 sudo pip3 install pygame adafruit-circuitpython-servokit
