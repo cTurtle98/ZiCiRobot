@@ -11,6 +11,8 @@ pygame.joystick.init()
 
 joystick_count = pygame.joystick.get_count()
 
+pygame.event.get()
+
 for i in range(joystick_count):
   joystick = pygame.joystick.Joystick(i)
   joystick.init()
