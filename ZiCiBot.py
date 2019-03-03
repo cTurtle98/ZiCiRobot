@@ -16,6 +16,8 @@ https://github.com/adafruit/Adafruit_CircuitPython_ServoKit
 import pygame
 #library for talking to servo board
 from adafruit_servokit import ServoKit
+# time for sleeps
+from time import sleep
 
 
 # initialize the joystick
@@ -61,6 +63,6 @@ while True:
   else:
     pwm.servo[2].angle = 90
   
-  
+  sleep(.5)
   
   
