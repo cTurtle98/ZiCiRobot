@@ -4,33 +4,6 @@ this is a file containing notes to self that are needed for this project
 
 ## NEW HID LIBRARY NEEDS TO BE FOUND AND REFRENCED HERE
 
-## servokit notes
-
-https://github.com/adafruit/Adafruit_CircuitPython_ServoKit
-https://www.adafruit.com/product/815
-
-- 0
-- 90 degree middle
-- 180
-
-Channels:
-
-1. stearing
-2. throttle (0-90: forward) (90-180: revrese) (check direction)
-3.
-4.
-5.
-6.
-7.
-8.
-9.
-10.
-11.
-12.
-13.
-14.
-15.
-16.
 
 ## pygame notes
 
