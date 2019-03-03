@@ -9,11 +9,12 @@ this is a file containing notes to self that are needed for this project
 https://github.com/adafruit/Adafruit_CircuitPython_ServoKit
 https://www.adafruit.com/product/815
 
-0
-90 degree middle
-180
+- 0
+- 90 degree middle
+- 180
 
 Channels:
+
 1. stearing
 2. throttle (0-90: forward) (90-180: revrese) (check direction)
 3.
@@ -42,6 +43,7 @@ switching to different HID library
 ### Dualshock 4 Refrence
 
 Axis:
+
 0. left stick x
 1. left stick y
 2. L2 Trigger
@@ -49,7 +51,8 @@ Axis:
 4. right stick y
 5. R2 Trigger
 
-Buttons
+Buttons:
+
 0. x
 1. circle
 2. triangle
