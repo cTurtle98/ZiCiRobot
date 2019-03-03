@@ -57,6 +57,7 @@ Buttons:
 1. circle
 2. triangle
 3. square
-
+4. 
+5. 
 6. left trigger (L2)
 7. right trigger (R2)
