@@ -5,9 +5,9 @@ ciaran farley
 
 '''
 
-from pygame import joystick
+import pygame
 
-joystick.init()
+pygame.joystick.init()
 
 joystick_count = pygame.joystick.get_count()
 
