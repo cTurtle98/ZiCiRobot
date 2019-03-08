@@ -16,7 +16,11 @@ import pygame
 from adafruit_servokit import ServoKit
 # time for sleeps
 from time import sleep
+import os
+import sys
 
+#disable video for pygame
+os.environ["SDL_VIDEODRIVER"] = "dummy"
 
 # initialize the joystick
 pygame.init()
