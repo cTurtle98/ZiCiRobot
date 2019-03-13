@@ -4,7 +4,7 @@ Ziah Jyothi
 
 ZiCiRobot Control
 
-Version 0.1
+Version 0.2
 
 HID game controller input
 output to adafruit servo board
@@ -19,14 +19,6 @@ from time import sleep
 import os
 import sys
 
-#disable video for pygame
-os.environ["SDL_VIDEODRIVER"] = "dummy"
-
-# initialize the joystick
-pygame.init()
-pygame.joystick.init()
-ds4 = pygame.joystick.Joystick(0)
-ds4.init()
 
 
 # initialize the pwm board
