@@ -11,7 +11,7 @@ output to adafruit servo board
 controls ziahs and ciarans robot
 '''
 #library for reading from joystick
-import pygame
+import inputs
 #library for talking to servo board
 from adafruit_servokit import ServoKit
 # time for sleeps
