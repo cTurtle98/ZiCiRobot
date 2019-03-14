@@ -10,6 +10,8 @@ HID game controller input
 output to adafruit servo board
 controls ziahs and ciarans robot
 '''
+DEBUG = True
+
 #library for reading from joystick
 import inputs
 #library for talking to servo board
@@ -34,6 +36,8 @@ while True:
         # stearing
         # input from left stick x
         if ds4.code == "ABS_X" :
+            if DEBUG :
+                print ("DEBUG: STEARING ", + ds4.state)
             pwm.servo[1].angle = map_value(ds4.state, 0, 255, 0, 128)
         #throttle
         # right trigger forward
