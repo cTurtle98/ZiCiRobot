@@ -39,7 +39,7 @@ while True:
             stearingAngle = int(map_value(ds4.state, 0, 255, 0, 128))
             pwm.servo[0].angle = stearingAngle + stearingTrim
         if ds4.code == "BTN_START" :
-            stearingTrim = stearingAngle - 90
+            stearingTrim = stearingAngle - 180
         #throttle
         # right trigger forward
         if ds4.code ==  "ABS_RZ" :
