@@ -16,8 +16,8 @@ import inputs
 from adafruit_servokit import ServoKit
 
 #function for turning the byte values from input into degrees for the servo library
-def map_value (oldValue, oldMin, oldMax, newMin, newMax):
-    oldRange = (OldMax - OldMin)  
+def map_value (OldValue, OldMin, OldMax, NewMin, NewMax):
+    OldRange = (OldMax - OldMin)  
     NewRange = (NewMax - NewMin)
     NewValue = (((OldValue - OldMin) * NewRange) / OldRange) + NewMin
     return newValue
