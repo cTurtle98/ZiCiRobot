@@ -17,7 +17,7 @@ import inputs
 #library for talking to servo board
 from adafruit_servokit import ServoKit
 # alloow sleepz
-form time import sleep
+from time import sleep
 
 #function for turning the byte values from input into degrees for the servo library
 def map_value (OldValue, OldMin, OldMax, NewMin, NewMax):
