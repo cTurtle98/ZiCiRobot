@@ -37,7 +37,7 @@ while True:
         # input from left stick x
         if ds4.code == "ABS_X" :
             if DEBUG :
-                print ("DEBUG: STEARING ", + ds4.state)
+                print ("DEBUG: STEARING ", + ds4.state, + map_value(ds4.state, 0, 255, 0, 128))
             pwm.servo[1].angle = map_value(ds4.state, 0, 255, 0, 128)
         #throttle
         # right trigger forward
