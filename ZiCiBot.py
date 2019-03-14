@@ -14,30 +14,36 @@ controls ziahs and ciarans robot
 import inputs
 #library for talking to servo board
 from adafruit_servokit import ServoKit
-# time for sleeps
-from time import sleep
-import os
-import sys
-
 
 
 # initialize the pwm board
 pwm = ServoKit(channels=16)
 
+#stearing trim amount of degrees for adjustment for center
+stearingTrim = 0
 
 while True:
-  #stearing
-  print("Stearing Axis", + ds4.get_axis(0))
-  stearingAngle = ((ds4.get_axis(0) - -1)/(1 - -1)) * (180 - 0) + 0
-  pwm.servo[1].angle = stearingAngle
-  #throttle
-  if ds4.get_button(6): #left trigger
-    pwm.servo[2].angle = ((ds4.get_axis(2) - -1)/(1 - -1)) * (90 - 0) + 0
-  elif ds4.get_button(7): #right trigger
-    pwm.servo[2].angle = ((ds4.get_axis(5) - -1)/(1 - -1)) * (180 - 90) + 90
-  else:
-    pwm.servo[2].angle = 90
-  
-  sleep(.5)
-  
-  
+    ds4_events = inputs.getgamepad()
+    for ds4 in ds4_events:
+        # stearing
+        # input from left stick x
+        if ds4.code == "ABS_X" :
+            pwm.servo[1].angle = map_value(ds4.state, 0, 255, 0, 128)
+        #throttle
+        # right trigger forward
+        if ds4.code ==  "ABS_RZ" :
+            pwm.servo[2].angle = map_value(ds4.state, 0, 255, 90, 128) + stearingTrim
+        elif ds4.code == "ABS_Z" :
+            pwm.servo[2].angle = map_value(ds4.state, 0, 255, 0, 90) + stearingTrim
+        else :
+            pwm.servo[2].angle = 90 + stearingTrim
+
+def map_value (oldValue, oldMin, oldMax, newMin, newMax):
+    oldRange = (OldMax - OldMin)  
+    NewRange = (NewMax - NewMin)
+    NewValue = (((OldValue - OldMin) * NewRange) / OldRange) + NewMin
+    return newValue
+
+
+
+ 
