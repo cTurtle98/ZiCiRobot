@@ -23,7 +23,7 @@ pwm = ServoKit(channels=16)
 stearingTrim = 0
 
 while True:
-    ds4_events = inputs.getgamepad()
+    ds4_events = inputs.get_gamepad()
     for ds4 in ds4_events:
         # stearing
         # input from left stick x
