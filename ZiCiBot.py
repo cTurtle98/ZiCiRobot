@@ -39,7 +39,6 @@ while True:
         # input from left stick x
         if ds4.code == "ABS_X" :
             stearingAngle = int(map_value(ds4.state, 0, 255, 0, 128)) + stearingTrim
-            print (stearingAngle)
             pwm.servo[0].angle = stearingAngle
         #throttle
         # right trigger forward
