@@ -15,6 +15,12 @@ import inputs
 #library for talking to servo board
 from adafruit_servokit import ServoKit
 
+#function for turning the byte values from input into degrees for the servo library
+def map_value (oldValue, oldMin, oldMax, newMin, newMax):
+    oldRange = (OldMax - OldMin)  
+    NewRange = (NewMax - NewMin)
+    NewValue = (((OldValue - OldMin) * NewRange) / OldRange) + NewMin
+    return newValue
 
 # initialize the pwm board
 pwm = ServoKit(channels=16)
@@ -37,13 +43,6 @@ while True:
             pwm.servo[2].angle = map_value(ds4.state, 0, 255, 0, 90) + stearingTrim
         else :
             pwm.servo[2].angle = 90 + stearingTrim
-
-def map_value (oldValue, oldMin, oldMax, newMin, newMax):
-    oldRange = (OldMax - OldMin)  
-    NewRange = (NewMax - NewMin)
-    NewValue = (((OldValue - OldMin) * NewRange) / OldRange) + NewMin
-    return newValue
-
 
 
  
