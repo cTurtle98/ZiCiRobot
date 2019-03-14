@@ -4,7 +4,7 @@ Ziah Jyothi
 
 ZiCiRobot Control
 
-Version 0.2
+Version 0.3
 
 HID game controller input
 output to adafruit servo board
