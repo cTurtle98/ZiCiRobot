@@ -36,17 +36,18 @@ while True:
         # stearing
         # input from left stick x
         if ds4.code == "ABS_X" :
-            if DEBUG :
-                print ("DEBUG: STEARING ", + ds4.state, + map_value(ds4.state, 0, 255, 0, 128))
-            pwm.servo[0].angle = int(map_value(ds4.state, 0, 255, 0, 128))
+            stearingAngle = int(map_value(ds4.state, 0, 255, 0, 128))
+            pwm.servo[0].angle = stearingAngle
+        if ds4.code == "BTN_START" :
+            stearingTrim = stearingAngle - 90
         #throttle
         # right trigger forward
         if ds4.code ==  "ABS_RZ" :
-            pwm.servo[2].angle = map_value(ds4.state, 0, 255, 90, 128) + stearingTrim
+            pwm.servo[1].angle = map_value(ds4.state, 0, 255, 90, 128)
         elif ds4.code == "ABS_Z" :
-            pwm.servo[2].angle = map_value(ds4.state, 0, 255, 0, 90) + stearingTrim
+            pwm.servo[1].angle = map_value(ds4.state, 0, 255, 0, 90)
         else :
-            pwm.servo[2].angle = 90 + stearingTrim
+            pwm.servo[1].angle = 90
 
 
  
