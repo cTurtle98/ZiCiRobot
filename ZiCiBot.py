@@ -20,7 +20,7 @@ def map_value (OldValue, OldMin, OldMax, NewMin, NewMax):
     OldRange = (OldMax - OldMin)  
     NewRange = (NewMax - NewMin)
     NewValue = (((OldValue - OldMin) * NewRange) / OldRange) + NewMin
-    return newValue
+    return NewValue
 
 # initialize the pwm board
 pwm = ServoKit(channels=16)
