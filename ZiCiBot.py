@@ -16,6 +16,8 @@ DEBUG = True
 import inputs
 #library for talking to servo board
 from adafruit_servokit import ServoKit
+# alloow sleepz
+form time import sleep
 
 #function for turning the byte values from input into degrees for the servo library
 def map_value (OldValue, OldMin, OldMax, NewMin, NewMax):
@@ -40,6 +42,7 @@ while True:
             pwm.servo[0].angle = stearingAngle + stearingTrim
         if ds4.code == "BTN_START" :
             stearingTrim = stearingAngle - 180
+            sleep(1)
         #throttle
         # right trigger forward
         if ds4.code ==  "ABS_RZ" :
