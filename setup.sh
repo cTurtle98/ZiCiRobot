@@ -5,7 +5,13 @@
 # setup script for preparing a raspberry pi for being the robot brain
 #
 
-sudo apt install python3-pip
+sudo apt update
+
+sudo apt install python3-pip -y
+
+sudo apt-get install python-smbus -y
+
+sudo apt-get install i2c-tools -y
 
 sudo pip3 install adafruit-circuitpython-servokit
 

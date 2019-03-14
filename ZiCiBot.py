@@ -30,7 +30,7 @@ def map_value (OldValue, OldMin, OldMax, NewMin, NewMax):
 pwm = ServoKit(channels=16)
 
 #stearing trim amount of degrees for adjustment for center
-stearingTrim = 0
+stearingTrim = 27
 
 while True:
     ds4_events = inputs.get_gamepad()
@@ -38,8 +38,9 @@ while True:
         # stearing
         # input from left stick x
         if ds4.code == "ABS_X" :
-            stearingAngle = int(map_value(ds4.state, 0, 255, 0, 128))
-            pwm.servo[0].angle = stearingAngle + stearingTrim
+            stearingAngle = int(map_value(ds4.state, 0, 255, 0, 128)) + stearingTrim
+            print (stearingAngle)
+            pwm.servo[0].angle = stearingAngle
         #throttle
         # right trigger forward
         if ds4.code ==  "ABS_RZ" :
