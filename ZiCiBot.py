@@ -52,7 +52,11 @@ while True:
     ds4_events = inputs.get_gamepad()
     # for loop to let me handle each event individually
     for ds4 in ds4_events:
-
+        
+        #speed up hopefuly by ignoring event types I dont need
+        if (ds4.ev_type == "Sync") or (ds4.ev_type == "Misc") :
+            continue
+        
         '''
         ################################
         # MODE CHANGE
