@@ -43,7 +43,7 @@ stearingTrim = 27
 throttleAngle = 90
 
 # control mode
-mode = "1"
+mode = 1
 MAXMODE = 2
 
 # main while loop to keep the program running till I kill it
