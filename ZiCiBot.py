@@ -97,7 +97,9 @@ while True:
                 pwm.servo[1].angle = throttleAngle
                 continue
 
-        ###############################
+        ##############################
+        '''
         # ARM MODE
         if mode == "2" :
             if ds4.code == "" :
+        '''
