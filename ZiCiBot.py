@@ -89,7 +89,8 @@ while True:
             elif ds4.code == "ABS_Z" :
                 # map the value from the L2 trigger to 90 through 0 degrees on the speed controller
                 throttleAngle = int(map_value(ds4.state, 0, 255, 90, 0))
-            pwm.servo[1].angle = throttleAngle
+            if ds4.code == "ABS_Z" or ds4.code == "ABS_RZ" :
+                pwm.servo[1].angle = throttleAngle
 
         ###############################
         # ARM MODE
