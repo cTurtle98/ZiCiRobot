@@ -70,7 +70,7 @@ while True:
 
         ###############################
         #DRIVING MODE
-        if mode == "1" :
+        if mode == 1 :
             # STEARING
             # if my event has a code of ABS_X (left stick x axis) run next code
             if ds4.code == "ABS_X" :
@@ -100,6 +100,6 @@ while True:
         ##############################
         '''
         # ARM MODE
-        if mode == "2" :
+        if mode == 2 :
             if ds4.code == "" :
         '''
