@@ -4,7 +4,7 @@ Ziah Jyothi
 
 ZiCiRobot Control
 
-Version 0.3
+Version 0.4
 
 HID game controller input
 output to adafruit servo board
@@ -39,6 +39,9 @@ pwm = ServoKit(channels=16)
 # lets pretend that the servo is properly centered
 stearingTrim = 27
 
+#center the throttle
+throttleAngle = 90
+
 # main while loop to keep the program running till I kill it
 while True:
     # instanciate an object of the event manager from the inputs library
@@ -52,17 +55,17 @@ while True:
             # publish stearing angle to the pwm driver board
             # stearing servo is on channel 0
             pwm.servo[0].angle = stearingAngle
+            
+            
         # if the event has a code of ABS_RZ (R2 Axis)
         # right trigger is forward (90 to 128 degrees) on the speed controller
         if ds4.code ==  "ABS_RZ" :
-            # set the pwm output on channel 1 for the motor speed controller to a mapped value from L2
-            pwm.servo[1].angle = map_value(ds4.state, 0, 255, 90, 128)
+            # map the value from L2 into the forward range for the speed controller for throttle
+            throttleAngle = int(map_value(ds4.state, 0, 255, 90, 128))
         # else if the event has a code of ABS_Z (L2 axis)
-        # left trigger is reverse (0 to 90 degrees) on the speed controller
+        # left trigger is reverse (90 to 0 degrees) on the speed controller
         elif ds4.code == "ABS_Z" :
-            # set the pwm output on channel 1 for the motor speed controller to a mapped value from L2
-            pwm.servo[1].angle = map_value(ds4.state, 0, 255, 0, 90)
-        # else if im not pressing either trigger
-        else :
-            # set the speed controller to 90 degrees aka center aka off
-            pwm.servo[1].angle = 90
+            # map the value from the L2 trigger to 90 through 0 degrees on the speed controller
+            throttleAngle = int(map_value(ds4.state, 0, 255, 90, 0))
+        pwm.servo[1].angle = throttleAngle
+        
