@@ -56,12 +56,12 @@ while True:
         '''
         ################################
         # MODE CHANGE
-        if ds4.code == "BTN_TR" :
+        if ds4.code == "BTN_START" :
             if mode < 0 and mode <= MAXMODE :
                 mode++
             if mode = MAXMODE :
                 mode = 1
-        if ds4.code == "BTN_TL" :
+        if ds4.code == "BTN_SELECT" :
             if mode < 0 and mode <= MAXMODE :
                 mode--
             if mode = 1 :
