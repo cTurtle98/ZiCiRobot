@@ -82,7 +82,7 @@ while True:
                 continue
             
             #THROTTLE
-            if ds4.code == "ABS_Z" or ds4.code == "ABS_RZ" :
+            if (ds4.code == "ABS_Z") or (ds4.code == "ABS_RZ") :
                 # if the event has a code of ABS_RZ (R2 Axis)
                 # right trigger is forward (90 to 128 degrees) on the speed controller
                 if ds4.code ==  "ABS_RZ" :
