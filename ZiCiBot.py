@@ -4,7 +4,7 @@ Ziah Jyothi
 
 ZiCiRobot Control
 
-Version 0.3
+Version 0.4
 
 HID game controller input
 output to adafruit servo board
@@ -32,6 +32,9 @@ pwm = ServoKit(channels=16)
 #stearing trim amount of degrees for adjustment for center
 stearingTrim = 27
 
+#center the throttle
+throttleAngle = 90
+
 while True:
     ds4_events = inputs.get_gamepad()
     for ds4 in ds4_events:
@@ -43,11 +46,10 @@ while True:
         #throttle
         # right trigger forward
         if ds4.code ==  "ABS_RZ" :
-            pwm.servo[1].angle = map_value(ds4.state, 0, 255, 90, 128)
+            throttleAngle = int(map_value(ds4.state, 0, 255, 90, 128))
         elif ds4.code == "ABS_Z" :
-            pwm.servo[1].angle = map_value(ds4.state, 0, 255, 0, 90)
-        else :
-            pwm.servo[1].angle = 90
+            throttleAngle = int(map_value(ds4.state, 0, 255, 90, 0))
+        pwm.servo[1].angle = throttleAngle
 
 
  
