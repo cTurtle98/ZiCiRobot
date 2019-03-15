@@ -71,26 +71,31 @@ while True:
         ###############################
         #DRIVING MODE
         if mode == "1" :
+            # STEARING
             # if my event has a code of ABS_X (left stick x axis) run next code
             if ds4.code == "ABS_X" :
                 # set the stearing angle to be the state (value) of the event mapped from a byte size to a degree then add the trim (see comments above)
-               stearingAngle = int(map_value(ds4.state, 0, 255, 0, 128)) + stearingTrim
-               # publish stearing angle to the pwm driver board
-               # stearing servo is on channel 0
-               pwm.servo[0].angle = stearingAngle
-                        
-            # if the event has a code of ABS_RZ (R2 Axis)
-            # right trigger is forward (90 to 128 degrees) on the speed controller
-            if ds4.code ==  "ABS_RZ" :
-                # map the value from L2 into the forward range for the speed controller for throttle
-                throttleAngle = int(map_value(ds4.state, 0, 255, 90, 128))
-            # else if the event has a code of ABS_Z (L2 axis)
-            # left trigger is reverse (90 to 0 degrees) on the speed controller
-            elif ds4.code == "ABS_Z" :
-                # map the value from the L2 trigger to 90 through 0 degrees on the speed controller
-                throttleAngle = int(map_value(ds4.state, 0, 255, 90, 0))
+                stearingAngle = int(map_value(ds4.state, 0, 255, 0, 128)) + stearingTrim
+                # publish stearing angle to the pwm driver board
+                # stearing servo is on channel 0
+                pwm.servo[0].angle = stearingAngle
+                continue
+            
+            #THROTTLE
             if ds4.code == "ABS_Z" or ds4.code == "ABS_RZ" :
+                # if the event has a code of ABS_RZ (R2 Axis)
+                # right trigger is forward (90 to 128 degrees) on the speed controller
+                if ds4.code ==  "ABS_RZ" :
+                    # map the value from L2 into the forward range for the speed controller for throttle
+                    throttleAngle = int(map_value(ds4.state, 0, 255, 90, 128))
+                # else if the event has a code of ABS_Z (L2 axis)
+                # left trigger is reverse (90 to 0 degrees) on the speed controller
+                elif ds4.code == "ABS_Z" :
+                    # map the value from the L2 trigger to 90 through 0 degrees on the speed controller
+                    throttleAngle = int(map_value(ds4.state, 0, 255, 90, 0))
+                #publish value to servo
                 pwm.servo[1].angle = throttleAngle
+                continue
 
         ###############################
         # ARM MODE
