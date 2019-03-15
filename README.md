@@ -1,6 +1,12 @@
 # ZiCiRobot
 
+this is a python program that runs on a raspberry pi for controlling a robot ziah and I are building
 
+INPUT DEVICE: sony dualshock 4
+
+OUTPUT DEVICE: adafruit 16 channel pwm servo driver board
+
+im not sure what else to put here so heres the changelog
 
 ## Changelog
 
