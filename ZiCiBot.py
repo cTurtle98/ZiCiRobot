@@ -25,10 +25,7 @@ def map_value (OldValue, OldMin, OldMax, NewMin, NewMax):
   this is pretty much the map() function from c
   I need this because the HID library gives me a 0 to 255 range for the axis inputs
   the servo driver board wants a 0 to 180 range'''
-  OldRange = (OldMax - OldMin)  
-  NewRange = (NewMax - NewMin)
-  NewValue = (((OldValue - OldMin) * NewRange) / OldRange) + NewMin
-  return NewValue
+  return (((OldValue - OldMin) * (NewMax - NewMin)) / (OldMax - OldMin)) + NewMin
 
 # tell servokit that I am using the 16 channel version of their i2c board
 # also instanciate a servokit object to name "pwm"
