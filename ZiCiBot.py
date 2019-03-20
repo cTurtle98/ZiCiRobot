@@ -26,6 +26,12 @@ def map_value (OldValue, OldMin, OldMax, NewMin, NewMax):
   I need this because the HID library gives me a 0 to 255 range for the axis inputs
   the servo driver board wants a 0 to 180 range'''
   return (((OldValue - OldMin) * (NewMax - NewMin)) / (OldMax - OldMin)) + NewMin
+  
+def stearing (position) :
+  pwm.servo[0].angle = = int(map_value(ds4.state, 0, 255, 0, 128)) + stearingTrim
+  
+def throttle (position) :
+  
 
 # tell servokit that I am using the 16 channel version of their i2c board
 # also instanciate a servokit object to name "pwm"
@@ -54,12 +60,8 @@ def main():
       # STEARING
       # if my event has a code of ABS_X (left stick x axis) run next code
       if ds4.code == "ABS_X" :
-        # set the stearing angle to be the state (value) of the event mapped from a byte size to a degree then add the trim (see comments above)
-        stearingAngle = int(map_value(ds4.state, 0, 255, 0, 128)) + stearingTrim
-        # publish stearing angle to the pwm driver board
-        # stearing servo is on channel 0
-        pwm.servo[0].angle = stearingAngle
-          continue
+        stearing(ds4.state)
+        continue
             
       #THROTTLE
       if (ds4.code == "ABS_Z") or (ds4.code == "ABS_RZ") :
@@ -72,7 +74,7 @@ def main():
         # left trigger is reverse (90 to 0 degrees) on the speed controller
         elif ds4.code == "ABS_Z" :
           # map the value from the L2 trigger to 90 through 0 degrees on the speed controller
-          throttleAngle = int(map_value(ds4.state, 0, 255, 90, 0))
+          throttleAngle = int(map_value(ds4.state, 0, 255, 90,  0))
         #publish value to servo
         pwm.servo[1].angle = throttleAngle
         print (throttleAngle)
