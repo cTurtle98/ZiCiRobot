@@ -77,7 +77,6 @@ def main():
           throttleAngle = int(map_value(ds4.state, 0, 255, 90,  0))
         #publish value to servo
         pwm.servo[1].angle = throttleAngle
-        print (throttleAngle)
         continue
 
 if __name__ == "__main__":
