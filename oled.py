@@ -65,6 +65,9 @@ font = ImageFont.load_default()
 
 def exit_funct() :
   draw.rectangle((0,0,width,height), outline=0, fill=0)
+  disp.image(image)
+  disp.display()
+
 atexit.register(exit_funct)
 
 while True:
