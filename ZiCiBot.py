@@ -30,7 +30,7 @@ def map_value (OldValue, OldMin, OldMax, NewMin, NewMax):
 def stearing (position) :
   pwm.servo[0].angle = = int(map_value(ds4.state, 0, 255, 0, 128)) + stearingTrim
   
-def throttle (position) :
+#def throttle (position) :
   
 
 # tell servokit that I am using the 16 channel version of their i2c board
