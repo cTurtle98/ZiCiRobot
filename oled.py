@@ -21,6 +21,8 @@ from PIL import ImageFont
 
 import subprocess
 
+import atexit
+
 # Raspberry Pi pin configuration:
 RST = None     # on the PiOLED this pin isnt used
 # Note the following are only used with SPI:
@@ -60,6 +62,10 @@ x = 0
 
 # Load default font.
 font = ImageFont.load_default()
+
+exit_funct():
+  draw.rectangle((0,0,width,height), outline=0, fill=0)
+atexit.register(exit_funct)
 
 while True:
 
