@@ -63,7 +63,7 @@ x = 0
 # Load default font.
 font = ImageFont.load_default()
 
-exit_funct() :
+def exit_funct() :
   draw.rectangle((0,0,width,height), outline=0, fill=0)
 atexit.register(exit_funct)
 
