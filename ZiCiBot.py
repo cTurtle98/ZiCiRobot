@@ -28,7 +28,7 @@ def map_value (OldValue, OldMin, OldMax, NewMin, NewMax):
   return (((OldValue - OldMin) * (NewMax - NewMin)) / (OldMax - OldMin)) + NewMin
   
 def stearing (position) :
-  pwm.servo[0].angle = = int(map_value(ds4.state, 0, 255, 0, 128)) + stearingTrim
+  pwm.servo[0].angle = int(map_value(ds4.state, 0, 255, 0, 128)) + stearingTrim
   
 def throttle (position) :
   
