@@ -11,6 +11,7 @@ im not sure what else to put here so heres the changelog
 ## Changelog
 
 #### v0.4 working throttle
+- Test Video: https://www.youtube.com/watch?v=iE4JfnMkYAo
 - throttle works now
 - throttle is the R2 and L2 triggers
 - right is forward left is reverse
