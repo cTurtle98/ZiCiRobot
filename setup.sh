@@ -18,3 +18,6 @@ sudo pip3 install adafruit-circuitpython-servokit
 sudo pip3 install inputs
 
 sudo pip3 install ds4drv
+
+echo 'please use "sudo crontab -e" to add this line to the crontab file'
+echo '@reboot python /home/pi/ZiCiRobot/oled.py &'
