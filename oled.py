@@ -67,7 +67,7 @@ def main():
   # Load default font.
   font = ImageFont.load_default()
   
-  signal.signal(os.kill, exit_funct(draw, disp, image))
+  signal.signal(15, exit_funct(draw, disp, image))
   
   while True:
 
