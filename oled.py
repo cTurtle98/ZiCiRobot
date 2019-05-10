@@ -24,14 +24,12 @@ import signal
 import os
 
 
-def exit_funct() :
+def exit_funct(draw, disp) :
   draw.rectangle((0,0,width,height), outline=0, fill=0)
   disp.image(image)
   disp.display()
 
 def main():
-  
-  signal.signal(os.kill, exit_funct())
 
   # 128x32 display with hardware I2C:
   disp = Adafruit_SSD1306.SSD1306_128_32(rst=None)
@@ -65,6 +63,8 @@ def main():
 
   # Load default font.
   font = ImageFont.load_default()
+  
+  signal.signal(os.kill, exit_funct(draw, disp))
   
   while True:
 
