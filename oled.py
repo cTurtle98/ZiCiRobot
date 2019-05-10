@@ -27,7 +27,7 @@ width = 128
 height = 32
 
 
-def exit_funct() :
+def exit_funct(sig, frame) :
   disp = Adafruit_SSD1306.SSD1306_128_32(rst=None)
   image = Image.new('1', (width, height))
   draw = ImageDraw.Draw(image)
@@ -37,7 +37,7 @@ def exit_funct() :
 
 def main():
   
-  signal.signal(signal.SIG_IGN, exit_funct())
+  signal.signal(signal.SIGINT, exit_funct())
 
   # 128x32 display with hardware I2C:
   disp = Adafruit_SSD1306.SSD1306_128_32(rst=None)
