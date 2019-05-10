@@ -46,8 +46,8 @@ def main():
 
   # Create blank image for drawing.
   # Make sure to create image with mode '1' for 1-bit color.
-  self.width = disp.width
-  self.height = disp.height
+  width = disp.width
+  height = disp.height
   image = Image.new('1', (width, height))
 
   # Get drawing object to draw on image.
