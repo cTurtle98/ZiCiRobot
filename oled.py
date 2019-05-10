@@ -36,6 +36,8 @@ def exit_funct() :
   disp.display()
 
 def main():
+  
+  signal.signal(signal(15), exit_funct())
 
   # 128x32 display with hardware I2C:
   disp = Adafruit_SSD1306.SSD1306_128_32(rst=None)
@@ -69,8 +71,6 @@ def main():
 
   # Load default font.
   font = ImageFont.load_default()
-  
-  signal.signal(signal(15), exit_funct())
   
   while True:
 
