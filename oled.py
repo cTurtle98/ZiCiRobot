@@ -82,15 +82,15 @@ def main():
     CPU = subprocess.check_output(cmd, shell = True )
     cmd = "free -m | awk 'NR==2{printf \"Mem: %s/%sMB %.2f%%\", $3,$2,$3*100/$2 }'"
     MemUsage = subprocess.check_output(cmd, shell = True )
-    cmd = "df -h | awk '$NF==\"/\"{printf \"Disk: %d/%dGB %s\", $3,$2,$5}'"
-    Disk = subprocess.check_output(cmd, shell = True )
+    #cmd = "df -h | awk '$NF==\"/\"{printf \"Disk: %d/%dGB %s\", $3,$2,$5}'"
+    #Disk = subprocess.check_output(cmd, shell = True )
 
     # Write two lines of text.
 
     draw.text((x, top),       "IP: " + str(IP),  font=font, fill=255)
     draw.text((x , top + 8),     str(CPU), font=font, fill=255)
     draw.text((x, top+16),    str(MemUsage),  font=font, fill=255)
-    draw.text((x, top+25),    str(Disk),  font=font, fill=255)
+    #draw.text((x, top+25),    str(Disk),  font=font, fill=255)
 
     # Display image.
     disp.image(image)
