@@ -20,6 +20,7 @@ from PIL import ImageDraw
 from PIL import ImageFont
 
 import subprocess
+import signal
 
 
 def exit_funct() :
