@@ -30,7 +30,7 @@ def exit_funct() :
 
 def main():
   
-  signal.signal(signal.sigterm, exit_funct())
+  signal.signal(os.kill, exit_funct())
 
   # 128x32 display with hardware I2C:
   disp = Adafruit_SSD1306.SSD1306_128_32(rst=None)
