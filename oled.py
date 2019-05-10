@@ -23,6 +23,9 @@ import subprocess
 import signal
 import os
 
+self.width = 0
+self.height = 0
+
 
 def exit_funct(draw, disp) :
   draw.rectangle((0,0,width,height), outline=0, fill=0)
