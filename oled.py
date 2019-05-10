@@ -23,8 +23,8 @@ import subprocess
 import signal
 import os
 
-width = 0
-height = 0
+width = 128
+height = 32
 
 
 def exit_funct() :
@@ -51,8 +51,6 @@ def main():
 
   # Create blank image for drawing.
   # Make sure to create image with mode '1' for 1-bit color.
-  width = disp.width
-  height = disp.height
   image = Image.new('1', (width, height))
 
   # Get drawing object to draw on image.
