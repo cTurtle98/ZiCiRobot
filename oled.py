@@ -27,7 +27,7 @@ width = 0
 height = 0
 
 
-def exit_funct(draw, disp) :
+def exit_funct(draw, disp, image) :
   draw.rectangle((0,0,width,height), outline=0, fill=0)
   disp.image(image)
   disp.display()
@@ -67,7 +67,7 @@ def main():
   # Load default font.
   font = ImageFont.load_default()
   
-  signal.signal(os.kill, exit_funct(draw, disp))
+  signal.signal(os.kill, exit_funct(draw, disp, image))
   
   while True:
 
