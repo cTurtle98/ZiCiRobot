@@ -27,7 +27,10 @@ width = 0
 height = 0
 
 
-def exit_funct(draw, disp, image) :
+def exit_funct() :
+  disp = Adafruit_SSD1306.SSD1306_128_32(rst=None)
+  image = Image.new('1', (width, height))
+  draw = ImageDraw.Draw(image)
   draw.rectangle((0,0,width,height), outline=0, fill=0)
   disp.image(image)
   disp.display()
@@ -67,7 +70,7 @@ def main():
   # Load default font.
   font = ImageFont.load_default()
   
-  signal.signal(signal(15), exit_funct(draw, disp, image))
+  signal.signal(signal(15), exit_funct())
   
   while True:
 
