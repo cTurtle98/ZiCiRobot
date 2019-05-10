@@ -21,6 +21,7 @@ from PIL import ImageFont
 
 import subprocess
 import signal
+import os
 
 
 def exit_funct() :
